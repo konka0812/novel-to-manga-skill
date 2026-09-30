@@ -1,0 +1,23 @@
+.env
+.env.*
+*.key
+credentials*.json
+
+# 用户私有工程与生成产物
+*-漫画工程/
+原著/
+原文.txt
+*.txt.bak
+backup-*/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
