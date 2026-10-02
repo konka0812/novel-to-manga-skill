@@ -21,7 +21,7 @@
 |---|---|---|
 | neutral | 中性 | 平衡、教育感 |
 | warm | 温馨 | 柔光、怀旧、生活感 |
-| dramatic | 戏剧 | 高对比、强光影（仅限高潮页/splash，默认慎选） |
+| dramatic | 戏剧 | 高对比、强光影 |
 | romantic | 浪漫 | 柔美、装饰元素 |
 | energetic | 活力 | 明亮、动感 |
 | vintage | 复古 | 时代感、做旧 |
