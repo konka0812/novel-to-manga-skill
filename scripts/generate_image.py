@@ -96,7 +96,7 @@ def main() -> int:
     parser.add_argument("--size", default="1024x1536")
     parser.add_argument("--quality", default="high", choices=["low", "medium", "high"])
     parser.add_argument("--api-base", default=os.getenv("IMAGE_API_BASE", "https://api.openai.com/v1"))
-    parser.add_argument("--ref", action="append", default=[], help="Reference image; repeat up to 3 times")
+    parser.add_argument("--ref", action="append", default=[], help="Reference image; repeatable, no hard cap")
     args = parser.parse_args()
 
     api_key = os.getenv("IMAGE_API_KEY")
@@ -114,7 +114,9 @@ def main() -> int:
         "Idempotency-Key": "novel-to-manga-" + uuid.uuid4().hex,
     }
 
-    refs = [Path(p) for p in args.ref[:3]]
+    refs = [Path(p) for p in args.ref]
+    if len(refs) > 6:
+        print(f"note: {len(refs)} reference images passed; identity fidelity may dilute beyond ~6", file=sys.stderr)
     for ref in refs:
         if not ref.is_file():
             raise SystemExit(f"Reference image not found: {ref}")
